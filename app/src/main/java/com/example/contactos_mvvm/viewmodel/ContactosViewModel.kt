@@ -38,9 +38,31 @@ class ContactosViewModel : ViewModel() {
                 "Salazar Maya",
                 "7775550217",
                 "diego@gmail.com"
+            ),
+            Contacto(
+                4,
+                R.drawable.maleprofile,
+                "Jorge",
+                "Morales Cardenas",
+                "7775550217",
+                "jorge@gmail.com"
+            ),
+            Contacto(
+                5,
+                R.drawable.maleprofile,
+                "Alejandro",
+                "Rios Garcia",
+                "7775550217",
+                "ale@gmail.com"
+            ),
+            Contacto(
+                6,
+                R.drawable.maleprofile,
+                "Murat",
+                "Castro Alvarez",
+                "7775550217",
+                "murat@gmail.com"
             )
-
-
         )
 
     }

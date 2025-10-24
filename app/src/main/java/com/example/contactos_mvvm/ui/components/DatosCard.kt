@@ -29,6 +29,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import com.example.contactos_mvvm.R
 import com.example.contactos_mvvm.data.model.Contacto
 import com.example.contactos_mvvm.ui.components.buttons.PrimaryButton
@@ -36,7 +38,7 @@ import com.example.contactos_mvvm.ui.components.buttons.SecondaryButton
 import com.example.contactos_mvvm.ui.theme.Contactos_MVVMTheme
 
 @Composable
-fun DatosCard(datos: Contacto){
+fun DatosCard(datos: Contacto, navController: NavController){
     Card(
         modifier = Modifier.fillMaxWidth()
     ) {
@@ -47,12 +49,6 @@ fun DatosCard(datos: Contacto){
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            // Título
-            Text(
-                text = "Añadir Contacto",
-                style = MaterialTheme.typography.headlineSmall,
-                fontWeight = FontWeight.Bold
-            )
 
             // Imagen del contacto
             Image(
@@ -98,7 +94,9 @@ fun DatosCard(datos: Contacto){
                     .padding(top = 16.dp),
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
-                SecondaryButton("Cancelar") { }
+                SecondaryButton("Cancelar") {
+                    navController.popBackStack()
+                }
                 PrimaryButton("Guardar") { }
             }
         }
@@ -108,6 +106,7 @@ fun DatosCard(datos: Contacto){
 @Preview(showBackground = true)
 @Composable
 fun PreviewDatosCard(){
+    val navController = androidx.navigation.compose.rememberNavController()
     val c = Contacto(
         1,
         R.drawable.maleprofile,
@@ -116,7 +115,8 @@ fun PreviewDatosCard(){
         "7775550217",
         "samuel@gmail.com"
     )
+
     Contactos_MVVMTheme {
-        DatosCard(c)
+        DatosCard(datos = c, navController = navController)
     }
 }
