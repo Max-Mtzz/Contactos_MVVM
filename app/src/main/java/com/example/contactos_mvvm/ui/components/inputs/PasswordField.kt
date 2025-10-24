@@ -11,6 +11,7 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import com.example.contactos_mvvm.viewmodel.LoginViewModel
 
 @Composable
 fun PasswordField(viewModel: LoginViewModel, label: String = "Contraseña") {

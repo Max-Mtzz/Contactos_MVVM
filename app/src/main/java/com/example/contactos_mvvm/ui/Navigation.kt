@@ -5,6 +5,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.contactos_mvvm.ui.screens.LoginScreen
 import com.example.contactos_mvvm.viewmodel.LoginViewModel
 
 @Composable
@@ -17,6 +18,6 @@ fun Navigation() {
             LoginScreen(viewModel = viewModel, navController = navController)
         }
 
-         }
+    }
 
-      }
+}
