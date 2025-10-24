@@ -1,18 +1,23 @@
 package com.example.contactos_mvvm.ui.screens
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.example.contactos_mvvm.ui.components.ContactosList
 import com.example.contactos_mvvm.ui.components.texts.Label
 import com.example.contactos_mvvm.ui.components.texts.Title
+import com.example.contactos_mvvm.viewmodel.ContactosViewModel
 
 @Composable
-fun ContactosScreen(viewModel: ViewModel, navController: NavController){
+fun ContactosScreen(viewModel: ContactosViewModel, navController: NavController){
     Column {
-        Title("Contactos")
+        Title("Contactos", modifier = Modifier.padding(15.dp))
         val contactos by viewModel.contactos.collectAsStateWithLifecycle()
         ContactosList(contactos) {viewModel:: clickContacto}
         Label("Fin de los contactos")

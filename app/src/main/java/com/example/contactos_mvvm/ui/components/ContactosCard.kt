@@ -2,8 +2,10 @@ package com.example.contactos_mvvm.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Card
@@ -23,7 +25,8 @@ import com.example.contactos_mvvm.ui.theme.Contactos_MVVMTheme
 @Composable
 fun ContactosCard(c: Contacto, x: (Contacto) -> Unit){
     Column{
-        Card (modifier = Modifier.clickable{x(c)}){
+        Card (modifier = Modifier.clickable{x(c)}
+            .fillMaxWidth()){
             Row (verticalAlignment = Alignment.CenterVertically){
                 Image(
                     painter = painterResource(R.drawable.contacto__1_),
@@ -35,7 +38,7 @@ fun ContactosCard(c: Contacto, x: (Contacto) -> Unit){
                 }
             }
             Row {
-                Column {
+                Column{
                     PrimaryButton("Editar") { }
                 }
                 Column {
