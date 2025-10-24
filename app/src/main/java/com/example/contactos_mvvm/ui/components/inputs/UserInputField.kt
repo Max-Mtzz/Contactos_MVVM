@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.input.ImeAction
+import com.example.contactos_mvvm.viewmodel.LoginViewModel
 
 @Composable
 fun UserInputField(
