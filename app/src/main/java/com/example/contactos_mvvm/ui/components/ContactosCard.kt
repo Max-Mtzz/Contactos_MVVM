@@ -23,7 +23,7 @@ import com.example.contactos_mvvm.ui.components.buttons.SecondaryButton
 import com.example.contactos_mvvm.ui.theme.Contactos_MVVMTheme
 
 @Composable
-fun ContactosCard(c: Contacto, x: (Contacto) -> Unit){
+fun ContactosCard(c: Contacto, x: (Contacto) -> Unit, modifier: Modifier = Modifier){
     Column{
         Card (modifier = Modifier.clickable{x(c)}
             .fillMaxWidth()){
@@ -46,21 +46,5 @@ fun ContactosCard(c: Contacto, x: (Contacto) -> Unit){
                 }
             }
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun PreviewContactosCard(){
-    val c = Contacto(
-        1,
-        R.drawable.maleprofile,
-        "Samuel",
-        "Rivera Robles",
-        "7775550217",
-        "samuel@gmail.com"
-    )
-    Contactos_MVVMTheme {
-        ContactosCard(c) { }
     }
 }

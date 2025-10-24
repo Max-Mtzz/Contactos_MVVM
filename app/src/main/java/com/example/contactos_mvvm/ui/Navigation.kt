@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.contactos_mvvm.ui.screens.ContactosScreen
+import com.example.contactos_mvvm.ui.screens.DatosScreen
 import com.example.contactos_mvvm.ui.screens.LoginScreen
 import com.example.contactos_mvvm.viewmodel.ContactosViewModel
 import com.example.contactos_mvvm.viewmodel.LoginViewModel
@@ -13,6 +14,7 @@ import com.example.contactos_mvvm.viewmodel.LoginViewModel
 @Composable
 fun Navigation() {
     val navController = rememberNavController()
+    val viewModel: ContactosViewModel = viewModel()
 
     NavHost(navController = navController, startDestination = "login") {
         composable("login") {
@@ -20,8 +22,10 @@ fun Navigation() {
             LoginScreen(viewModel = viewModel, navController = navController)
         }
         composable("verContactos") {
-            val viewModel: ContactosViewModel = viewModel() // instancia del ViewModel
-            ContactosScreen(viewModel = viewModel, navController = navController)
+            ContactosScreen(viewModel, navController)
+        }
+        composable("datos") {
+            DatosScreen(viewModel, navController)
         }
     }
 

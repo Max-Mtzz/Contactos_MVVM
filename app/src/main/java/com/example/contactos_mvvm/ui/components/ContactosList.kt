@@ -16,7 +16,7 @@ fun ContactosList(lista: List<Contacto>, x: (Contacto) -> Unit) {
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         items(items = lista, key = { it.id }) { contactos ->
-            ContactosCard(contactos) { x(contactos) }
+            ContactosCard(contactos, x)
         }
     }
 }

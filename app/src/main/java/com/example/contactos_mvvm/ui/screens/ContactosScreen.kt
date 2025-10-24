@@ -19,7 +19,10 @@ fun ContactosScreen(viewModel: ContactosViewModel, navController: NavController)
     Column {
         Title("Contactos", modifier = Modifier.padding(15.dp))
         val contactos by viewModel.contactos.collectAsStateWithLifecycle()
-        ContactosList(contactos) {viewModel:: clickContacto}
+        ContactosList(contactos) {contact ->
+            viewModel.clickContacto(contact)
+            navController.navigate("datos")
+        }
         Label("Fin de los contactos")
     }
 }

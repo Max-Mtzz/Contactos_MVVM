@@ -10,6 +10,8 @@ class ContactosViewModel : ViewModel() {
 
     val _contactos = MutableStateFlow<List<Contacto>>(emptyList())
     val contactos : StateFlow<List<Contacto>> = _contactos
+    private val _selectedContact = MutableStateFlow<Contacto?>(null)
+    val selectedContact: StateFlow<Contacto?> = _selectedContact
 
     init {
         _contactos.value = listOf(
@@ -44,9 +46,8 @@ class ContactosViewModel : ViewModel() {
     }
 
     fun clickContacto(contacto : Contacto){
-
         println("Haz hecho click en ${contacto.nombre}")
-
+        _selectedContact.value = contacto
     }
 }
 
