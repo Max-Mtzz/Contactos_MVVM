@@ -7,7 +7,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.contactos_mvvm.ui.screens.ContactosScreen
 import com.example.contactos_mvvm.ui.screens.DatosScreen
+import com.example.contactos_mvvm.ui.screens.ForgotPasswordScreen
 import com.example.contactos_mvvm.ui.screens.LoginScreen
+import com.example.contactos_mvvm.ui.screens.RegisterScreen
 import com.example.contactos_mvvm.viewmodel.ContactosViewModel
 import com.example.contactos_mvvm.viewmodel.LoginViewModel
 
@@ -21,6 +23,9 @@ fun Navigation() {
             val viewModel: LoginViewModel = viewModel() // instancia del ViewModel
             LoginScreen(viewModel = viewModel, navController = navController)
         }
+        composable("forgot_password") { ForgotPasswordScreen(navController) }
+        composable("register") { RegisterScreen(navController) }
+
         composable("verContactos") {
             ContactosScreen(viewModel, navController)
         }
