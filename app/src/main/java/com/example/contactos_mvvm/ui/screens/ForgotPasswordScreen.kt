@@ -1,5 +1,6 @@
 package com.example.contactos_mvvm.ui.screens
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.*
@@ -11,10 +12,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.contactos_mvvm.ui.components.buttons.PrimaryButton
+import com.example.contactos_mvvm.ui.theme.Contactos_MVVMTheme
+import com.example.contactos_mvvm.viewmodel.ForgotPasswordViewModel
+import com.example.contactos_mvvm.viewmodel.LoginViewModel
+
 
 @Composable
-fun ForgotPasswordScreen(navController: NavController? = null) {
+fun ForgotPasswordScreen(viewModel: ForgotPasswordViewModel, navController: NavController) {
     var email by remember { mutableStateOf("") }
 
     Column(
@@ -62,8 +68,17 @@ fun ForgotPasswordScreen(navController: NavController? = null) {
     }
 }
 
-@Preview(showBackground = true, showSystemUi = true)
+@SuppressLint("ViewModelConstructorInComposable")
+@Preview(showBackground = true)
 @Composable
 fun ForgotPasswordScreenPreview() {
-    ForgotPasswordScreen()
+    Contactos_MVVMTheme {
+        val navController = rememberNavController()
+        val viewModel = ForgotPasswordViewModel()
+
+        ForgotPasswordScreen(
+            navController = navController,
+            viewModel = viewModel
+        )
+    }
 }
